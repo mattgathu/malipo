@@ -5,7 +5,6 @@ A simple toy payments engine.
 Reads a series of transactions from a CSV, updates client accounts, handles disputes and chargebacks, and then outputs the state of clients accounts as a CSV.
 
 ## Code Layout
---
 
 The implementation uses a component based approach.
 
@@ -23,7 +22,6 @@ Project Layout:
 - `src/store.rs` : data storage implementation.
 
 ## Design Decisions
---
 * a trait is used to find the data storage interface.
 
 This allows for different storage implementations to used e.g. in-memory stores can be used for
@@ -43,7 +41,7 @@ This allows for different trait implementations to be used without having to rew
 code.
 
 ## Error Handling
---
+
 All possible errors are modeled into a single enum `MalipoError` which
 guarantees a single error type and allows easy error propagation using the `?` syntax.
 
@@ -54,7 +52,7 @@ An assumption made is that the input data is always well formed (e.g. a deposit 
 have an amount) and unwrapping the amount is considered safe.
 
 ## Testing
---
+
 There are end-to-end test scenarios covering various transactions sequences.
 The tests are implemented as a module of the binary `main.rs`.
 
@@ -62,10 +60,10 @@ Running tests:
 - `cargo test`
 
 ## Executing
---
+
 - `cargo run -- transactions.csv > accounts.csv`
 
 
 ## Further Work
---
+
 * Swap out the In Memory Store if a more robust data storage engine.
